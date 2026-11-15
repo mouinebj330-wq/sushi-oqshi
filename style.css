@@ -959,3 +959,51 @@ body{
 .page-card:nth-child(3) h2 {
     font-size: 18px;
 }
+
+.contact-link {
+    color: #e7c77a;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+.contact-link:hover {
+    color: #c9a96e;
+    text-decoration: underline;
+}
+
+.add-to-cart {
+    background: #22183fe3;
+    color: hwb(0 95% 3%);
+    border: none;
+    padding: 12px 18px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+.add-to-cart:hover {
+    background: #7c2020;
+    color: #e7e704fa;
+}
+.cart-section {
+    background-color: #294296;
+    border: 1px solid #c9a96e;
+    padding: 15px;
+    margin: 30px;
+    width: 179px;
+    max-width: 100%;
+    color: #f3efe6;
+    position: fixed;
+    box-sizing: border-box;
+    border-radius: 0 0 0 12px;
+    top: -25px;
+    right: -23px;
+    z-index: 9999;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.cart-section h2 {
+    color: #e7c77a;
+}
+#cart-total {
+    color: #e7c77a;
+}
