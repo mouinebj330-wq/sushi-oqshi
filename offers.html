@@ -27,9 +27,17 @@
                 <img src="сеть запечённый.jpg" alt="набор роллов">
                 <div class="offer-content">
                     <span class="offer-label">ВЫХОДНОЕ ПРЕДЛОЖЕНИЕ </span>
-                    <h2>сет для друзей</h2>
+                    <h2>сет "для друзей"</h2>
                     <p>Вкусный набор роллов для приятного вечера в компании.</p>
-                    <div class="offer-price">Цена: уточняется</div>
+                    <div class="offer-price">Цена: 1299 &#8381;</div>
+                    <div class="product-order">
+                            <span>Заказать</span>
+                            <div class="quantity-controls">
+                                <button onclick="changeProductQuantity('сеть запечённый', 1299, -1)">-</button>
+                                <span id="quantity-сеть-запечённый">0</span>
+                                <button onclick="changeProductQuantity('сеть запечённый', 1299, 1)">+</button>
+                            </div>
+                    </div>
                 </div>
             </article>
             <article class="offer-card">
@@ -38,7 +46,15 @@
                     <span class="offer-label">СПЕЦИАЛЬНО ДЛЯ ВАС</span>
                     <h2>Любимые роллы</h2>
                     <p>Попробуйте любимые роллы и откройте новые вкусы.</p>
-                    <div class="offer-price">Цена: уточняется</div>
+                    <div class="offer-price">Цена: 1499 &#8381;</div>
+                    <div class="product-order">
+                            <span>Заказать</span>
+                            <div class="quantity-controls">
+                                <button onclick="changeProductQuantity('сеть дубай', 1499, -1)">-</button>
+                                <span id="quantity-сеть-дубай">0</span>
+                                <button onclick="changeProductQuantity('сеть дубай', 1499, 1)">+</button>
+                            </div>
+                    </div>
                 </div>
             </article>
             <article class="offer-card">
@@ -47,48 +63,89 @@
                     <span class="offer-label">ПРЕДЛОЖЕНИЕ ДНЯ</span>
                     <h2>Вкусный вечер</h2>
                     <p>добовьте немного японского вкуса в ваш вечер</p>
-                    <div class="offer-price">Цена: уточняется</div>
+                    <div class="offer-price">Цена: 1999 &#8381;</div>
+                    <div class="product-order">
+                            <span>Заказать</span>
+                            <div class="quantity-controls">
+                                <button onclick="changeProductQuantity('сеть вчеринка', 1999, -1)">-</button>
+                                <span id="quantity-сеть-вчеринка">0</span>
+                                <button onclick="changeProductQuantity('сеть вчеринка', 1999, 1)">+</button>
+                            </div>
+                    </div>
                 </div>
             </article>
             <article class="offer-card">
                 <img src="сеть всё есть.jpg" alt="набор роллов">
                 <div class="offer-content">
-                    <span class="offer-label"></span>
-                    <h2></h2>
-                    <p></p>
-                    <div class="offer-price">Цена: уточняется</div>
+                    <span class="offer-label">Идеальный баланс вксов</span>
+                    <h2>сет "всё есть"</h2>
+                    <p>Всёб что вы любите, в одном большом и сытном сете.</p>
+                    <div class="offer-price">Цена: 1355 &#8381;</div>
+                    <div class="product-order">
+                            <span>Заказать</span>
+                            <div class="quantity-controls">
+                                <button onclick="changeProductQuantity('сеть всё есть', 1355, -1)">-</button>
+                                <span id="quantity-сеть-всё-есть">0</span>
+                                <button onclick="changeProductQuantity('сеть всё есть', 1355, 1)">+</button>
+                            </div>
+                    </div>
                 </div>
             </article>
               <article class="offer-card">
                 <img src="сеть выходной.jpg" alt="набор роллов">
                 <div class="offer-content">
-                    <span class="offer-label"></span>
-                    <h2></h2>
-                    <p></p>
-                    <div class="offer-price">Цена: уточняется</div>
+                    <span class="offer-label">Праздник вкуса для всей компании</span>
+                    <h2>сет "выходной"</h2>
+                    <p>создайте себе идеальный отдых с нашими свежими роллами.</p>
+                    <div class="offer-price">Цена: 1455 &#8381;</div>
+                    <div class="product-order">
+                            <span>Заказать</span>
+                            <div class="quantity-controls">
+                                <button onclick="changeProductQuantity('сеть выходной', 1455, -1)">-</button>
+                                <span id="quantity-сеть-выходной">0</span>
+                                <button onclick="changeProductQuantity('сеть выходной', 1455, 1)">+</button>
+                            </div>
+                    </div>
                 </div>
             </article>
               <article class="offer-card">
                 <img src="сеть горячий.jpg" alt="набор роллов">
                 <div class="offer-content">
-                    <span class="offer-label"></span>
-                    <h2></h2>
-                    <p></p>
-                    <div class="offer-price">Цена: уточняется</div>
+                    <span class="offer-label">хрустящее удовольствие с пылу с жару</span>
+                    <h2>сет "горячий"</h2>
+                    <p>нежные запечённые и тёплые роллы, которые тают во рту</p>
+                    <div class="offer-price">Цена: 1199 &#8381;</div>
+                    <div class="product-order">
+                            <span>Заказать</span>
+                            <div class="quantity-controls">
+                                <button onclick="changeProductQuantity('сеть горячий', 1199, -1)">-</button>
+                                <span id="quantity-сеть-горячый">0</span>
+                                <button onclick="changeProductQuantity('сеть горячий', 1199, 1)">+</button>
+                            </div>
+                    </div>
                 </div>
             </article>
         </section>
-        <section class="">
+        <section class="offers-bottom">
             <h2>Следите за нашими предложениями</h2>
             <p>Новые вкуные идеи и специальные предложения скоро появятся здесь.</p>
             <a href="menu.html" class="about-buttom">Посмотреть меню</a>
         </section>
+        <section class="cart-section">
+        <h2>🛒 Ваша корзина</h2>
+        <div id="cart-items">
+            <p>корзина пока пуста</p>
+        </div>
+        <h3>
+            Итого: <span id="cart-total">0</span> ₽
+        </h3>
+    </section>
     </main>
 
     <footer class="footer">
         &copy; 2026 Суши Ойши. Все права защищены.
 
     </footer>
-    
+    <script src="cart.js"></script>
 </body>
 </html>
