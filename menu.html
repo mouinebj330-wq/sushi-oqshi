@@ -219,7 +219,28 @@
             <button class="close-checkout"
                     onclick="closeCheckout()">×</button>
             <h2>Оформление заказа</h2>
-            <p>Как получить заказ ?</p>
+            <p>Заполните данные для оформления заказа</p>
+
+            <label for="customer-name">Ваше имя</label>
+            <input type="text" 
+                   id="customer-name"
+                   placeholder="Введите ваше имя" 
+                   pattern="[А-Яа-яЁёA-Za-z\s-]+"
+                   title="Введите имя руссками буквами"
+                   required>
+
+            <label>Номер телефона</label>
+            <div class="phone-field">
+                <span>+7</span>
+                <input type="tel"
+                       id="customer-phone"
+                       placeholder="900 123-45-67" 
+                       maxlength="12"
+                       inputmode="numeric"
+                       autocomplete="tel-national"
+                       required>
+            </div>
+            <h3>Как получить заказ ?</h3>
             <label> 
                 <input type="radio" name="delivery" 
                    value="delivery" checked>
@@ -230,17 +251,26 @@
                        value="pickup">
                 Самовывоз
             </label>
-            <div id="pickup-address" style="display: none;">
-                <p>Адрес ресторана</p>
-                <p>Г. Киров, УЛ. Воровского, Д. 55, 610027</p>
-            </div>
             <div id="delivery-address">
                 <label for="customer-address">
                     Адрес доставки
                 </label>
                 <input type="text" id="customer-address"
-                       placeholder="Введите ваш адрес">
+                       placeholder="Улица, Дом, Квартира">
             </div>
+            <div id="pickup-address" style="display: none;">
+                <h3>Самовывоз из ресторана</h3>
+                <p>Г. Киров, УЛ. Воровского, Д. 55, 610027</p>
+            </div>
+            <label for="order-comment">
+                Комментарий к заказу
+            </label>
+            <textarea id="order-comment" 
+                      placeholder="Ваши пожелания к заказу..."
+                      rows="3"></textarea>
+            <button class="confirm-order-button" onclick="confirmOrder()">
+                Подтвердить заказ
+            </button>
         </div>
     </div>
     </main>

@@ -1104,3 +1104,27 @@ body{
         transform: translateY(0);
     }
 }
+
+.phone-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #111820;
+    border: 1px solid #73ddf5;
+    border-radius: 9px;
+    padding: 0 12px;
+    margin-top: 10px;
+}
+.phone-field span {
+    color: #73ddf5;
+    font-weight: bold;
+}
+.phone-field input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    padding: 13px 0;
+}
