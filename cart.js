@@ -121,3 +121,21 @@ function changeProductQuantity(name, price, amount) {
         quantityElement.textContent = updatedItem ? updatedItem.quantity : 0;
     }
 }
+function openCheckout() {
+    document.getElementById("checkout-modal").style.display = "flex";
+}
+
+function closeCheckout() {
+    document.getElementById("checkout-modal").style.display = "none";
+}
+document.addEventListener("change", function(event) {
+    if (event.target.name === "delivery") {
+        const isPickup = event.target.value === "pickup";
+
+        document.getElementById("pickup-address").style.display =
+            isPickup ? "block" : "none"
+
+        document.getElementById("delivery-address").style.display =
+            isPickup ? "none" : "block"
+    }
+});
