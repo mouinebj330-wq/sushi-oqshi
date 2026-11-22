@@ -343,7 +343,7 @@ body{
     }
 }
 
-/*  ABOUY PAGE */
+/*  ABOUT PAGE */
 
 .about-page {
     max-width: 1200px;
@@ -1006,4 +1006,101 @@ body{
 }
 #cart-total {
     color: #e7c77a;
+}
+
+/*    window for completing the order  */
+.checkout-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/*   request box   */
+.checkout-box {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    background: #1b2833;
+    color: #f4f8fa;
+    border: 1px solid #73ddf5;
+    border-radius: 18px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+.checkout-box h2 {
+    color: #73ddf5;
+    text-align: center;
+    margin-top: 0;
+}
+.checkout-box label {
+    display: block;
+    margin: 18px 0;
+    cursor: pointer;
+}
+.checkout-box input[type="radio"]{
+    accent-color: #73ddf5;
+    margin-right: 8px;
+}
+.checkout-box input[type="text"] {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    border: 1px solid #73ddf5;
+    border-radius: 0px;
+    background: #111820;
+    color: white;
+    box-sizing: border-box;
+}
+.close-checkout {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+#pickup-address {
+    background: #263b49;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+#pickup-address p {
+    margin: 5px 0;
+}
+
+@media (max-width: 600px) {
+    .checkout-modal {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .checkout-box {
+        max-width: none;
+        width: 100%;
+        border-radius: 22px 22px 0 0;
+        padding: 35px 22px 30px;
+        border-bottom: none;
+        animation: checkout-slide-up 0.3s ease-out;
+    }
+} 
+
+@keyframes checkout-slide-up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }

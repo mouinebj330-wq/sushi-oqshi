@@ -139,7 +139,39 @@
         <h3>
             Итого: <span id="cart-total">0</span> ₽
         </h3>
+        <button class="checkout-button" onclick="openCheckout()">
+            Оформить заказ 
+        </button>
     </section>
+    <div id="checkout-modal" class="checkout-modal" style="display: none;">
+        <div class="checkout-box">
+            <button class="close-checkout"
+                    onclick="closeCheckout()">×</button>
+            <h2>Оформление заказа</h2>
+            <p>Как получить заказ ?</p>
+            <label> 
+                <input type="radio" name="delivery" 
+                   value="delivery" checked>
+                Доставка
+            </label>
+            <label>
+                <input type="radio" name="delivery"
+                       value="pickup">
+                Самовывоз
+            </label>
+            <div id="pickup-address" style="display: none;">
+                <p>Адрес ресторана</p>
+                <p>Г. Киров, УЛ. Воровского, Д. 55, 610027</p>
+            </div>
+            <div id="delivery-address">
+                <label for="customer-address">
+                    Адрес доставки
+                </label>
+                <input type="text" id="customer-address"
+                       placeholder="Введите ваш адрес">
+            </div>
+        </div>
+    </div>
     </main>
 
     <footer class="footer">
