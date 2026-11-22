@@ -139,3 +139,114 @@ document.addEventListener("change", function(event) {
             isPickup ? "none" : "block"
     }
 });
+
+document.addEventListener("DOMContentLoaded", function (){
+    const phone = document.getElementById("customer-phone");
+
+    if (phone) {
+        phone.addEventListener("input", function () {
+            let digits = this.value.replace(/\D/g, "");
+
+            if (digits.startsWith("7")) {
+                digits = digits.slice(1);
+            }
+            if (digits.startsWith("8")) {
+                digits = digits.slice(1);
+            }
+            this.value = digits.slice(0, 10);
+        });
+    }
+
+    const name = document.getElementById("customer-name");
+
+    if (name) {
+        name.addEventListener("input", function () {
+            let value = this.value.replace(/[^А-Яа-яЁёA-Za-z\s-]/g, "");
+
+            if (value.length > 0) {
+                value = value.charAt(0).toLocaleUpperCase() + value.slice(1);
+            }
+            this.value = value;
+        });
+    }
+});
+
+function confirmOrder() {
+    const nameInput = document.getElementById("customer-name")
+    const phoneInput = document.getElementById("customer-phone")
+    const addressInput = document.getElementById("customer-address")
+    const commentInput = document.getElementById("customer-comment")
+
+    const name = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const comment = commentInput ? commentInput.value.trim() : "";
+
+    const deliveryOption = document.querySelector(
+        `input[name="delivery"]:checked`
+    );
+    if (!name) {
+        alert("Пожалуйста, введите ваше имя");
+        nameInput.focus();
+        return;
+    }
+    if (!/^[А-Яа-яЁёA-Za-z\s-]+$/.test(name)) {
+        alert("Имя должно содержать только русские или английские буквы");
+        nameInput.focus();
+        return;
+    }
+    if (!/^\d{10}$/.test(phone)) {
+        alert("Введите 10 цифр номера телефона");
+        phoneInput.focus();
+        return;
+    }
+    if (!deliveryOption) {
+        alert("Выберите способ получения заказа");
+        return;
+    }
+
+    const isDelivery = deliveryOption.value === "delivery";
+    const address = isDelivery
+        ? (addressInput ? addressInput.value.trim() : "")
+        : "Самовывоз: Г. Киров, УЛ. Воровского, Д. 55, 610027"
+
+    if (isDelivery && !address) {
+        alert("Пожалуйста, введите адрес доставки");
+        addressInput.focus();
+        return;
+    }
+    const cart = getCart();
+    
+    if (!cart || cart.length === 0) {
+        alert("Ваша корзина пуста");
+        return;
+    }
+
+    let total = 0;
+    let orderDetails = "";
+
+    cart.forEach(function (item) {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+
+        orderDetails +=
+            item.name + " × " + item.quantity + 
+            " = " + itemTotal + " ₽\n";
+    });
+
+    const fullPhone = "+7" + phone;
+
+    const orderMessage = 
+        "НОВЫЙ ЗАКАЗ — СУШИ ОЙШИ\n\n" +
+        "Имя: " + name + "\n" +
+        "Телефон: " + fullPhone + "\n" +
+        "Получение: " + (isDelivery ? "Доставка" : "Самыовывоз") + "\n" +
+        "Адрес: " + address + "\n\n" +
+        "ЗАКАЗ:\n" + orderDetails +
+        "\nИТОГО: " + total + "₽\n\n" +
+        "Комментарий: " + (comment || "Нет");
+        alert(
+            "Заказ подготовлен!\n\n" +
+            orderMessage
+        );
+        console.log(orderMessage);
+}
