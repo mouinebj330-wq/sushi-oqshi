@@ -83,4 +83,41 @@ function renderCart() {
     cartTotal.textContent = total;
 }
 
+
 document.addEventListener("DOMContentLoaded", renderCart);
+
+function changeProductQuantity(name, price, amount) {
+    let cart = getCart();
+    let item = cart.find(product => product.name === name);
+
+    if (amount > 0) {
+        if (item) {
+            item.quantity++;
+        } else {
+            cart.push ({
+                name: name,
+                price: price,
+                quantity: 1
+            });
+        }
+    } else if (item) {
+        item.quantity--;
+
+        if (item.quantity <= 0) {
+            cart = cart.filter(product => product.name !== name);
+        }
+    }
+
+    saveCart(cart);
+    renderCart();
+    
+    let quantityElement = document.querySelector(
+        `[data-product-name="${name}"]`
+    );
+
+    if (quantityElement) {
+        let updatedCart = getCart();
+        let updatedItem = updatedCart.find(product => product.name === name);
+        quantityElement.textContent = updatedItem ? updatedItem.quantity : 0;
+    }
+}
