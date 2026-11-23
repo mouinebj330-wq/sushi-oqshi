@@ -196,83 +196,102 @@
                 Скоро здесь появится наша коллекция сетов.
             </p>
         </section>
-         <section class="menu-category">
+        <section class="menu-category">
             <h2>Напитки</h2>
             <p class="category-note">
                 Скоро здесь появится список напитков.
             </p>
         </section>
         <section class="cart-section">
-        <h2>🛒 Ваша корзина</h2>
-        <div id="cart-items">
-            <p>корзина пока пуста</p>
-        </div>
-        <h3>
-            Итого: <span id="cart-total">0</span> ₽
-        </h3>
-        <button class="checkout-button" onclick="openCheckout()">
-            Оформить заказ 
-        </button>
-    </section>
-    <div id="checkout-modal" class="checkout-modal" style="display: none;">
-        <div class="checkout-box">
-            <button class="close-checkout"
-                    onclick="closeCheckout()">×</button>
-            <h2>Оформление заказа</h2>
-            <p>Заполните данные для оформления заказа</p>
-
-            <label for="customer-name">Ваше имя</label>
-            <input type="text" 
-                   id="customer-name"
-                   placeholder="Введите ваше имя" 
-                   pattern="[А-Яа-яЁёA-Za-z\s-]+"
-                   title="Введите имя руссками буквами"
-                   required>
-
-            <label>Номер телефона</label>
-            <div class="phone-field">
-                <span>+7</span>
-                <input type="tel"
-                       id="customer-phone"
-                       placeholder="900 123-45-67" 
-                       maxlength="12"
-                       inputmode="numeric"
-                       autocomplete="tel-national"
-                       required>
+            <h2>🛒 Ваша корзина</h2>
+            <div id="cart-items">
+                <p>корзина пока пуста</p>
             </div>
-            <h3>Как получить заказ ?</h3>
-            <label> 
-                <input type="radio" name="delivery" 
-                   value="delivery" checked>
-                Доставка
-            </label>
-            <label>
-                <input type="radio" name="delivery"
-                       value="pickup">
-                Самовывоз
-            </label>
-            <div id="delivery-address">
-                <label for="customer-address">
-                    Адрес доставки
-                </label>
-                <input type="text" id="customer-address"
-                       placeholder="Улица, Дом, Квартира">
-            </div>
-            <div id="pickup-address" style="display: none;">
-                <h3>Самовывоз из ресторана</h3>
-                <p>Г. Киров, УЛ. Воровского, Д. 55, 610027</p>
-            </div>
-            <label for="order-comment">
-                Комментарий к заказу
-            </label>
-            <textarea id="order-comment" 
-                      placeholder="Ваши пожелания к заказу..."
-                      rows="3"></textarea>
-            <button class="confirm-order-button" onclick="confirmOrder()">
-                Подтвердить заказ
+            <h3>
+                Итого: <span id="cart-total">0</span> ₽
+            </h3>
+            <button class="checkout-button" onclick="openCheckout()">
+                Оформить заказ 
             </button>
+        </section>
+        <div id="checkout-modal" class="checkout-modal" style="display: none;">
+            <div class="checkout-box">
+                <button class="close-checkout"
+                        onclick="closeCheckout()">×</button>
+                <h2>Оформление заказа</h2>
+                <p>Заполните данные для оформления заказа</p>
+
+                <label for="customer-name">Ваше имя</label>
+                <input type="text" 
+                    id="customer-name"
+                    placeholder="Введите ваше имя" 
+                    pattern="[А-Яа-яЁёA-Za-z\s-]+"
+                    title="Введите имя руссками буквами"
+                    required>
+
+                <label>Номер телефона</label>
+                <div class="phone-field">
+                    <span>+7</span>
+                    <input type="tel"
+                        id="customer-phone"
+                        placeholder="900 123-45-67" 
+                        maxlength="12"
+                        inputmode="numeric"
+                        autocomplete="tel-national"
+                        required>
+                </div>
+                <h3>Как получить заказ ?</h3>
+                <label> 
+                    <input type="radio" name="delivery" 
+                    value="delivery" checked>
+                    Доставка
+                </label>
+                <label>
+                    <input type="radio" name="delivery"
+                        value="pickup">
+                    Самовывоз
+                </label>
+                <div id="delivery-address">
+                    <label for="customer-address">
+                        Адрес доставки
+                    </label>
+                    <input type="text" id="customer-address"
+                        placeholder="Улица, Дом, Квартира">
+                </div>
+                <div id="pickup-address" style="display: none;">
+                    <h3>Самовывоз из ресторана</h3>
+                    <p>Г. Киров, УЛ. Воровского, Д. 55, 610027</p>
+                </div>
+                <label for="order-comment">Комментарий к заказу</label>
+                <textarea 
+                    id="order-comment"
+                    class="comment-input" 
+                    placeholder="Напишите пожелания к заказу..."
+                    rows="3"></textarea>
+                <button class="confirm-order-button" onclick="confirmOrder()">
+                    Подтвердить заказ
+                </button>
+            </div>
         </div>
-    </div>
+        <div id="contact-choice" class="checkout-modal" style="display: none;">
+            <div class="checkout-box">
+                <button class="close-checkout"
+                        onclick="document.getElementById('contact-choice').style.display='none'">
+                    ×
+                </button>
+                <h2>Куда отправить заказ?</h2>
+                <p>Выберите удобный способ связи с нами</p>
+                <button class="contact-button" onclick="swndOrder('telegram')">
+                    Telegram
+                </button>
+                <button class="contact-button" onclick="swndOrder('vk')">
+                    ВКонтакте(VK)
+                </button>
+                <button class="contact-button" onclick="swndOrder('max')">
+                    MAX
+                </button>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         &copy; 2026 Суши Ойши. Все права защищены.

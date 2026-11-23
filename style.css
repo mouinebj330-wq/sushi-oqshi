@@ -1128,3 +1128,57 @@ body{
     color: white;
     padding: 13px 0;
 }
+
+/*     comment field  */
+.comment-input {
+    display: block;
+    width: 100%;
+    min-height: 90px;
+    padding: 14px;
+    margin-top: 10px;
+    box-sizing: border-box;
+
+    background: #111820;
+    color: #f4f8fa;
+    border: 1px solid #73ddf5;
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 15px;
+    resize: vertical;
+    outline: none;
+    transition: 0.2s;
+}
+.comment-input::placeholder {
+    color: #91a6b3;
+}
+.comment-input:focus {
+    border-color: #a5efff;
+    box-shadow: 0 0 8px rgba(115, 221, 245, 0.25);
+}
+
+/*   order confirmation button  */
+.confirm-order-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 18px;
+
+    background: #73ddf5;
+    color: #111820;
+    border: none;
+    border-radius: 12px;
+
+    font-size: 17px;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.confirm-order-button:hover {
+    background: #a5efff;
+    transform: translateY(-2px);
+}  
+.confirm-order-button:active {
+    transform: scale(0.98);
+}

@@ -244,9 +244,42 @@ function confirmOrder() {
         "ЗАКАЗ:\n" + orderDetails +
         "\nИТОГО: " + total + "₽\n\n" +
         "Комментарий: " + (comment || "Нет");
-        alert(
-            "Заказ подготовлен!\n\n" +
-            orderMessage
-        );
-        console.log(orderMessage);
+        window.pendingOrderMessage = orderMessage;
+
+        document.getElementById("checkout-modal").style.display = "none";
+        document.getElementById("contact-choice").style.display = "flex";
+}
+
+function sendOrder(platform) {
+
+    const message = window.pendingOrderMessage;
+
+    if (!message) {
+        alert("Не удалось найти данные заказа");
+        return;
+    }
+
+    const encodedMessage =emcodeURIComponent(message);
+        
+    const links ={
+        telegram:"https://t.me/moxamedxamadi",
+        vk:"https://vk.ru/id1097241074",
+        max:"https://max.ru/u/f9LHodD0cOJhJaNks5Np6praoIlp3Y6nnxXb6mEKbeoBLgNhwgggdQ9ETCk"
+    };
+    //  copy order details 
+    if (platform === "telegram") {
+        window.open(links.telegram, "_balank");
+    } else {
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(message).then(function (){
+                window.open(links[platform], "_blank");
+                alert("Заказ скопирован! Вставьте его в чат с нами.");
+            }).catch(function () {
+                alert("Не удалось скопировать заказ. ПОпробуйте ещё раз.");
+            });
+        } else {
+            window.open(links[platform], "_blank");
+            alert("Скупируйте текст заказа из окна оформления заказа и отправьте его нам.");
+        }
+    }
 }
