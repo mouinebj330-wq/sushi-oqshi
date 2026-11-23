@@ -1182,3 +1182,34 @@ body{
 .confirm-order-button:active {
     transform: scale(0.98);
 }
+
+.contact-button {
+    display: block;
+    width: 100px;
+    padding: 15px 8px;
+    margin-top: 12px;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: break-word;
+    text-align: center;
+
+    background: #73ddf5;
+    color: #111820;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-weight: bold;
+    font-family: inherit;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+.contact-button:hover {
+    background: #a5efff;
+    transform: translateY(-2px);
+}
+.contact-button:active {
+    transform: scale(0.98);
+}

@@ -251,7 +251,6 @@ function confirmOrder() {
 }
 
 function sendOrder(platform) {
-
     const message = window.pendingOrderMessage;
 
     if (!message) {
@@ -259,27 +258,22 @@ function sendOrder(platform) {
         return;
     }
 
-    const encodedMessage =emcodeURIComponent(message);
-        
-    const links ={
-        telegram:"https://t.me/moxamedxamadi",
-        vk:"https://vk.ru/id1097241074",
-        max:"https://max.ru/u/f9LHodD0cOJhJaNks5Np6praoIlp3Y6nnxXb6mEKbeoBLgNhwgggdQ9ETCk"
+    const links = {
+        telegram: "https://t.me/share/url?url=&text=" + encodeURIComponent(message),
+        vk: "https://vk.ru/id1097241074",
+        max: "https://max.ru/u/f9LHodD0cOJhJaNks5Np6praoIlp3Y6nnxXb6mEKbeoBLgNhwgggdQ9ETCk"
     };
-    //  copy order details 
-    if (platform === "telegram") {
-        window.open(links.telegram, "_balank");
-    } else {
-        if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(message).then(function (){
-                window.open(links[platform], "_blank");
-                alert("Заказ скопирован! Вставьте его в чат с нами.");
-            }).catch(function () {
-                alert("Не удалось скопировать заказ. ПОпробуйте ещё раз.");
-            });
-        } else {
-            window.open(links[platform], "_blank");
-            alert("Скупируйте текст заказа из окна оформления заказа и отправьте его нам.");
-        }
+
+    if (!links[platform]) {
+        alert("Неизвестный способ связи");
+        return;
     }
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(message).catch(function () {
+            console.log("Не удалось скопировать заказ");
+        });
+    }
+
+    window.open(links[platform], "_blank");
 }
