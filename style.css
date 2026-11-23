@@ -1244,3 +1244,25 @@ body{
 .checkout-button:hover {
     background: #a5efff;
 }
+
+@media (max-width: 900px) {
+    .cart-section {
+        min-width: 190px;
+        width: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cart-section {
+        top: 1px;
+        right: 1px;
+        width: 280px;
+        min-width: 190px;
+        max-height: 65vh;
+        padding: 12px;
+    }
+    .checkout-button {
+        font-size: 15px;
+        padding: 14px 8px;
+    }
+}
